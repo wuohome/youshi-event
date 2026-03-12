@@ -59,69 +59,98 @@
         .lava-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
+            filter: blur(70px);
+            opacity: 0.6;
             will-change: transform;
         }
+        /* 大紅球 */
         .lava-blob-1 {
-            width: 500px; height: 500px;
+            width: 800px; height: 800px;
             background: radial-gradient(circle, #C8102E 0%, #E8354A 40%, transparent 70%);
-            top: -10%; left: -5%;
-            animation: lava1 18s ease-in-out infinite;
+            top: -15%; left: -10%;
+            animation: lava1 8s ease-in-out infinite;
         }
+        /* 中粉球 */
         .lava-blob-2 {
-            width: 450px; height: 450px;
+            width: 550px; height: 550px;
             background: radial-gradient(circle, #FF6B6B 0%, #FF8E8E 40%, transparent 70%);
-            top: 30%; right: -10%;
-            animation: lava2 22s ease-in-out infinite;
+            top: 25%; right: -8%;
+            animation: lava2 10s ease-in-out infinite;
         }
+        /* 小橘球 */
         .lava-blob-3 {
-            width: 400px; height: 400px;
+            width: 250px; height: 250px;
             background: radial-gradient(circle, #F97316 0%, #FDBA74 40%, transparent 70%);
-            bottom: -5%; left: 20%;
-            animation: lava3 20s ease-in-out infinite;
+            bottom: 10%; left: 15%;
+            animation: lava3 6s ease-in-out infinite;
         }
+        /* 大紅球 2 */
         .lava-blob-4 {
-            width: 350px; height: 350px;
+            width: 700px; height: 700px;
             background: radial-gradient(circle, #C8102E 0%, #FB7185 40%, transparent 70%);
-            top: 60%; left: 50%;
-            animation: lava4 25s ease-in-out infinite;
+            top: 50%; left: 40%;
+            animation: lava4 9s ease-in-out infinite;
         }
+        /* 迷你粉球 */
         .lava-blob-5 {
-            width: 300px; height: 300px;
+            width: 180px; height: 180px;
             background: radial-gradient(circle, #FF4D6D 0%, #FFB3C1 40%, transparent 70%);
-            top: 10%; left: 60%;
-            animation: lava5 16s ease-in-out infinite;
+            top: 15%; left: 55%;
+            animation: lava5 5s ease-in-out infinite;
+        }
+        /* 中紅球 */
+        .lava-blob-6 {
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, #E8354A 0%, #FB7185 40%, transparent 70%);
+            top: 70%; left: -5%;
+            animation: lava6 7s ease-in-out infinite;
+        }
+        /* 小小粉點 */
+        .lava-blob-7 {
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, #C8102E 0%, #E8354A 50%, transparent 70%);
+            top: 40%; left: 25%;
+            opacity: 0.7;
+            animation: lava7 4s ease-in-out infinite;
         }
 
         @keyframes lava1 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(120px, 80px) scale(1.15); }
-            50% { transform: translate(60px, 180px) scale(0.9); }
-            75% { transform: translate(-40px, 100px) scale(1.1); }
+            25% { transform: translate(150px, 100px) scale(1.15); }
+            50% { transform: translate(80px, 220px) scale(0.9); }
+            75% { transform: translate(-50px, 120px) scale(1.1); }
         }
         @keyframes lava2 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-100px, 60px) scale(1.1); }
-            50% { transform: translate(-160px, -40px) scale(0.95); }
-            75% { transform: translate(-60px, -90px) scale(1.05); }
+            25% { transform: translate(-130px, 80px) scale(1.12); }
+            50% { transform: translate(-200px, -50px) scale(0.92); }
+            75% { transform: translate(-80px, -110px) scale(1.08); }
         }
         @keyframes lava3 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(80px, -60px) scale(1.2); }
-            50% { transform: translate(200px, -30px) scale(0.85); }
-            75% { transform: translate(100px, 40px) scale(1.1); }
+            25% { transform: translate(100px, -80px) scale(1.3); }
+            50% { transform: translate(250px, -40px) scale(0.8); }
+            75% { transform: translate(130px, 50px) scale(1.15); }
         }
         @keyframes lava4 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-80px, -100px) scale(1.1); }
-            50% { transform: translate(40px, -60px) scale(0.9); }
-            75% { transform: translate(-120px, 30px) scale(1.15); }
+            25% { transform: translate(-100px, -130px) scale(1.1); }
+            50% { transform: translate(50px, -80px) scale(0.88); }
+            75% { transform: translate(-150px, 40px) scale(1.18); }
         }
         @keyframes lava5 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-70px, 90px) scale(1.2); }
-            66% { transform: translate(50px, 50px) scale(0.9); }
+            33% { transform: translate(-90px, 120px) scale(1.4); }
+            66% { transform: translate(70px, 60px) scale(0.7); }
+        }
+        @keyframes lava6 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            30% { transform: translate(120px, -60px) scale(1.15); }
+            60% { transform: translate(60px, -140px) scale(0.9); }
+        }
+        @keyframes lava7 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, -60px) scale(1.5); }
         }
 
         /* ====== GLASS CARD ====== */
@@ -297,6 +326,8 @@
         <div class="lava-blob lava-blob-3"></div>
         <div class="lava-blob lava-blob-4"></div>
         <div class="lava-blob lava-blob-5"></div>
+        <div class="lava-blob lava-blob-6"></div>
+        <div class="lava-blob lava-blob-7"></div>
     </div>
 
     <!-- ========== HERO ========== -->
