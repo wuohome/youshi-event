@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -20,16 +20,19 @@
                         primary: '#C8102E',
                         'primary-dark': '#9B0C23',
                         'primary-light': '#E8354A',
-                        surface: '#0A0A0A',
-                        'surface-elevated': '#141414',
-                        'surface-hover': '#1E1E1E',
-                        'surface-border': '#262626',
-                        muted: '#737373',
-                        'muted-light': '#A3A3A3',
+                        'primary-soft': '#FEE2E2',
+                        surface: '#F5F5F7',
+                        'surface-white': '#FFFFFF',
+                        txt: '#1D1D1F',
+                        'txt-secondary': '#6E6E73',
+                        'txt-tertiary': '#86868B',
                     },
                     fontFamily: {
-                        display: ['Cinzel', 'serif'],
-                        sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'],
+                        sans: ['"Noto Sans TC"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '2xl': '20px',
+                        '3xl': '24px',
                     }
                 }
             }
@@ -45,181 +48,215 @@
             }
         }
 
-        /* === HERO === */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            background: #0A0A0A;
-        }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(200, 16, 46, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(200, 16, 46, 0.3), transparent);
-        }
-
-        /* === GRAIN TEXTURE === */
-        .grain::before {
-            content: '';
+        /* ====== LAVA LAMP BACKGROUND ====== */
+        .lava-bg {
             position: fixed;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            background: #F5F5F7;
+        }
+        .lava-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            will-change: transform;
+        }
+        .lava-blob-1 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, #C8102E 0%, #E8354A 40%, transparent 70%);
+            top: -10%; left: -5%;
+            animation: lava1 18s ease-in-out infinite;
+        }
+        .lava-blob-2 {
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, #FF6B6B 0%, #FF8E8E 40%, transparent 70%);
+            top: 30%; right: -10%;
+            animation: lava2 22s ease-in-out infinite;
+        }
+        .lava-blob-3 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, #F97316 0%, #FDBA74 40%, transparent 70%);
+            bottom: -5%; left: 20%;
+            animation: lava3 20s ease-in-out infinite;
+        }
+        .lava-blob-4 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, #C8102E 0%, #FB7185 40%, transparent 70%);
+            top: 60%; left: 50%;
+            animation: lava4 25s ease-in-out infinite;
+        }
+        .lava-blob-5 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, #FF4D6D 0%, #FFB3C1 40%, transparent 70%);
+            top: 10%; left: 60%;
+            animation: lava5 16s ease-in-out infinite;
+        }
+
+        @keyframes lava1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(120px, 80px) scale(1.15); }
+            50% { transform: translate(60px, 180px) scale(0.9); }
+            75% { transform: translate(-40px, 100px) scale(1.1); }
+        }
+        @keyframes lava2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-100px, 60px) scale(1.1); }
+            50% { transform: translate(-160px, -40px) scale(0.95); }
+            75% { transform: translate(-60px, -90px) scale(1.05); }
+        }
+        @keyframes lava3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(80px, -60px) scale(1.2); }
+            50% { transform: translate(200px, -30px) scale(0.85); }
+            75% { transform: translate(100px, 40px) scale(1.1); }
+        }
+        @keyframes lava4 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-80px, -100px) scale(1.1); }
+            50% { transform: translate(40px, -60px) scale(0.9); }
+            75% { transform: translate(-120px, 30px) scale(1.15); }
+        }
+        @keyframes lava5 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-70px, 90px) scale(1.2); }
+            66% { transform: translate(50px, 50px) scale(0.9); }
+        }
+
+        /* ====== GLASS CARD ====== */
+        .glass {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+        .glass-subtle {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(30px) saturate(150%);
+            -webkit-backdrop-filter: blur(30px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ====== CONTENT WRAPPER ====== */
+        .content-layer {
+            position: relative;
             z-index: 1;
         }
 
-        /* === COUNTDOWN === */
-        .countdown-unit {
-            background: linear-gradient(180deg, #141414, #0A0A0A);
-            border: 1px solid #262626;
+        /* ====== BUTTONS ====== */
+        .btn-primary {
+            background: #C8102E;
+            color: #fff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(200, 16, 46, 0.3);
+        }
+        .btn-primary:hover {
+            background: #E8354A;
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            background: #9B0C23;
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(200, 16, 46, 0.3);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-primary:focus-visible {
+            outline: 2px solid #C8102E;
+            outline-offset: 2px;
         }
 
-        /* === CARD GLASS === */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.95));
-            border: 1px solid rgba(255,255,255,0.06);
-            backdrop-filter: blur(10px);
-            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        /* ====== SPEAKER CARD ====== */
+        .speaker-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
         }
-        .glass-card:hover {
-            border-color: rgba(200, 16, 46, 0.25);
-            box-shadow: 0 0 40px rgba(200, 16, 46, 0.06);
+        .speaker-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
         }
 
-        /* === TOPIC CARDS === */
+        /* ====== TOPIC CARD ====== */
         .topic-card {
-            background: #141414;
-            border: 1px solid #262626;
             transition: all 0.25s ease;
             cursor: default;
         }
         .topic-card:hover {
-            border-color: #C8102E;
-            background: linear-gradient(135deg, rgba(200,16,46,0.08), rgba(200,16,46,0.02));
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-color: rgba(200, 16, 46, 0.3);
         }
-        .topic-card .topic-number {
-            color: rgba(200, 16, 46, 0.2);
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 700;
+        .topic-number {
+            font-size: 3.5rem;
+            font-weight: 900;
             line-height: 1;
-            transition: color 0.25s ease;
-        }
-        .topic-card:hover .topic-number {
-            color: rgba(200, 16, 46, 0.4);
-        }
-
-        /* === SPEAKER === */
-        .speaker-card {
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .speaker-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
-        .speaker-avatar {
-            position: relative;
-        }
-        .speaker-avatar::after {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #C8102E, #E8354A, #C8102E);
-            z-index: -1;
-            opacity: 0;
+            background: linear-gradient(135deg, #C8102E, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.25;
             transition: opacity 0.25s ease;
         }
-        .speaker-card:hover .speaker-avatar::after {
-            opacity: 1;
+        .topic-card:hover .topic-number {
+            opacity: 0.5;
         }
 
-        /* === FORM === */
+        /* ====== FORM ====== */
         .form-input {
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .form-input:focus {
             outline: none;
             border-color: #C8102E;
-            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.12);
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
         }
 
-        /* === CTA BUTTON === */
-        .btn-primary {
-            background: #C8102E;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background: #E8354A;
-            box-shadow: 0 4px 20px rgba(200, 16, 46, 0.4);
-        }
-        .btn-primary:active {
-            background: #9B0C23;
-            box-shadow: none;
-        }
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .btn-primary:focus-visible {
-            outline: 2px solid #E8354A;
-            outline-offset: 2px;
+        /* ====== COUNTDOWN ====== */
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* === GHOST BUTTON === */
-        .btn-ghost {
-            border: 1px solid #C8102E;
-            color: #C8102E;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .btn-ghost:hover {
-            background: rgba(200, 16, 46, 0.08);
-            color: #E8354A;
-        }
-
-        /* === SECTION DIVIDER === */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #262626, transparent);
-        }
-
-        /* === SCROLL REVEAL === */
+        /* ====== SCROLL REVEAL ====== */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-d1 { transition-delay: 0.1s; }
+        .reveal-d2 { transition-delay: 0.2s; }
+        .reveal-d3 { transition-delay: 0.3s; }
 
-        /* === SUCCESS MODAL === */
+        /* ====== MODAL ====== */
         .modal-backdrop {
-            backdrop-filter: blur(12px);
-            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(245, 245, 247, 0.7);
         }
 
-        /* === STICKY CTA (mobile) === */
+        /* ====== STICKY MOBILE CTA ====== */
         .sticky-cta {
             transform: translateY(100%);
             transition: transform 0.3s ease;
@@ -228,118 +265,141 @@
             transform: translateY(0);
         }
 
-        /* === SCROLLBAR === */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0A0A0A; }
-        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #404040; }
+        /* ====== SELECT ARROW ====== */
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E6E73' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
 
-        /* Select dropdown dark fix */
-        select option {
-            background: #141414;
-            color: #fff;
+        /* ====== SCROLLBAR ====== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+        /* ====== MISC ====== */
+        .check-icon {
+            width: 20px; height: 20px;
+            background: linear-gradient(135deg, #C8102E, #E8354A);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
         }
     </style>
 </head>
-<body class="bg-surface text-white font-sans grain">
+<body class="text-txt font-sans">
+
+    <!-- Lava Lamp Background -->
+    <div class="lava-bg" aria-hidden="true">
+        <div class="lava-blob lava-blob-1"></div>
+        <div class="lava-blob lava-blob-2"></div>
+        <div class="lava-blob lava-blob-3"></div>
+        <div class="lava-blob lava-blob-4"></div>
+        <div class="lava-blob lava-blob-5"></div>
+    </div>
 
     <!-- ========== HERO ========== -->
-    <section class="hero-section min-h-screen flex items-center px-4 md:px-8 lg:px-16 relative z-10">
-        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-20">
+    <section class="content-layer min-h-screen flex items-center px-4 md:px-8 lg:px-16 py-20">
+        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             <!-- Left: Content -->
             <div class="reveal">
-                <p class="text-primary font-semibold text-sm tracking-[0.2em] uppercase mb-6">
-                    2026.03.28 SAT &mdash; BANQIAO
-                </p>
-                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6 tracking-wide">
+                <div class="inline-flex items-center gap-2 glass-subtle rounded-full px-4 py-2 mb-8">
+                    <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    <span class="text-xs font-semibold text-txt-secondary tracking-wide">2026.03.28（六）板橋</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-black leading-[1.15] mb-6 tracking-tight text-txt">
                     包租代管<br>
-                    <span class="text-primary">全攻略</span>
+                    <span class="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">全攻略</span>
                 </h1>
-                <p class="text-muted-light text-lg md:text-xl leading-relaxed mb-4 max-w-md">
+                <p class="text-lg md:text-xl text-txt-secondary leading-relaxed mb-3 max-w-md">
                     三位業界導師，一個下午，帶你拆解包租代管的創業藍圖與獲利模式。
                 </p>
-                <p class="text-muted text-base mb-10 max-w-md">
-                    從談包租、談創業、到合作獲利——不講理論，只給你能直接上場的實戰策略。
+                <p class="text-base text-txt-tertiary mb-10 max-w-md">
+                    不講理論，只給你能直接上場的實戰策略。
                 </p>
 
                 <!-- Countdown -->
                 <div class="mb-10">
-                    <p class="text-xs text-muted uppercase tracking-widest mb-3">距離活動開始</p>
+                    <p class="text-xs text-txt-tertiary uppercase tracking-widest mb-3 font-medium">距離活動開始</p>
                     <div class="flex gap-3" id="countdown">
-                        <div class="countdown-unit rounded-xl px-4 py-3 text-center min-w-[64px]">
-                            <span class="text-2xl font-bold font-display text-white" id="cd-days">--</span>
-                            <p class="text-[10px] text-muted mt-1 uppercase tracking-wider">Days</p>
+                        <div class="countdown-unit rounded-2xl px-4 py-3 text-center min-w-[68px]">
+                            <span class="text-2xl font-black text-txt" id="cd-days">--</span>
+                            <p class="text-[10px] text-txt-tertiary mt-0.5 font-medium">天</p>
                         </div>
-                        <div class="countdown-unit rounded-xl px-4 py-3 text-center min-w-[64px]">
-                            <span class="text-2xl font-bold font-display text-white" id="cd-hours">--</span>
-                            <p class="text-[10px] text-muted mt-1 uppercase tracking-wider">Hours</p>
+                        <div class="countdown-unit rounded-2xl px-4 py-3 text-center min-w-[68px]">
+                            <span class="text-2xl font-black text-txt" id="cd-hours">--</span>
+                            <p class="text-[10px] text-txt-tertiary mt-0.5 font-medium">時</p>
                         </div>
-                        <div class="countdown-unit rounded-xl px-4 py-3 text-center min-w-[64px]">
-                            <span class="text-2xl font-bold font-display text-white" id="cd-mins">--</span>
-                            <p class="text-[10px] text-muted mt-1 uppercase tracking-wider">Mins</p>
+                        <div class="countdown-unit rounded-2xl px-4 py-3 text-center min-w-[68px]">
+                            <span class="text-2xl font-black text-txt" id="cd-mins">--</span>
+                            <p class="text-[10px] text-txt-tertiary mt-0.5 font-medium">分</p>
                         </div>
-                        <div class="countdown-unit rounded-xl px-4 py-3 text-center min-w-[64px]">
-                            <span class="text-2xl font-bold font-display text-white" id="cd-secs">--</span>
-                            <p class="text-[10px] text-muted mt-1 uppercase tracking-wider">Secs</p>
+                        <div class="countdown-unit rounded-2xl px-4 py-3 text-center min-w-[68px]">
+                            <span class="text-2xl font-black text-txt" id="cd-secs">--</span>
+                            <p class="text-[10px] text-txt-tertiary mt-0.5 font-medium">秒</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-4">
-                    <a href="#register" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-white font-bold text-base">
+                    <a href="#register" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-base">
                         <span>立即報名</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                     </a>
-                    <span class="text-muted text-sm">免費入場・名額有限</span>
+                    <span class="text-txt-tertiary text-sm">免費入場・名額有限</span>
                 </div>
             </div>
 
-            <!-- Right: Event highlights card -->
-            <div class="reveal reveal-delay-2">
-                <div class="glass-card rounded-2xl p-8 md:p-10 space-y-6">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-                        <span class="text-xs text-muted uppercase tracking-widest">Event Details</span>
+            <!-- Right: Event info glass card -->
+            <div class="reveal reveal-d2">
+                <div class="glass rounded-3xl p-8 md:p-10 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+                        </div>
+                        <span class="text-sm font-semibold text-txt">活動資訊</span>
                     </div>
 
                     <div class="space-y-5">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <div class="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
                             </div>
                             <div>
-                                <p class="text-white font-semibold">2026 年 3 月 28 日（六）</p>
-                                <p class="text-muted text-sm">14:00 — 17:00</p>
+                                <p class="font-semibold text-txt">2026 年 3 月 28 日（六）</p>
+                                <p class="text-txt-secondary text-sm">14:00 — 17:00</p>
                             </div>
                         </div>
 
-                        <div class="h-px bg-surface-border"></div>
+                        <div class="h-px bg-black/5"></div>
 
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <div class="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
                             </div>
                             <div>
-                                <p class="text-white font-semibold">心寓商務中心</p>
-                                <p class="text-muted text-sm">板橋府中館 2F</p>
-                                <p class="text-muted text-sm">新北市板橋區四川路一段136號2樓</p>
-                                <a href="https://maps.app.goo.gl/GZgP4u1ESLvRifaA8" target="_blank" rel="noopener" class="text-primary text-sm hover:text-primary-light inline-flex items-center gap-1 mt-1 cursor-pointer">
+                                <p class="font-semibold text-txt">心寓商務中心</p>
+                                <p class="text-txt-secondary text-sm">板橋府中館 2F</p>
+                                <p class="text-txt-tertiary text-sm">新北市板橋區四川路一段136號2樓</p>
+                                <a href="https://maps.app.goo.gl/GZgP4u1ESLvRifaA8" target="_blank" rel="noopener" class="text-primary text-sm font-medium hover:text-primary-light inline-flex items-center gap-1 mt-1.5 cursor-pointer">
                                     <span>查看地圖</span>
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="h-px bg-surface-border"></div>
+                        <div class="h-px bg-black/5"></div>
 
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <div class="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             </div>
                             <div>
-                                <p class="text-white font-semibold">免費參加</p>
-                                <p class="text-muted text-sm">線上報名即可，無需任何費用</p>
+                                <p class="font-semibold text-txt">免費參加</p>
+                                <p class="text-txt-secondary text-sm">線上報名即可，無需任何費用</p>
                             </div>
                         </div>
                     </div>
@@ -348,51 +408,49 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- ========== WHAT YOU'LL LEARN ========== -->
-    <section class="py-24 px-4 md:px-8 bg-surface relative z-10">
+    <!-- ========== TOPICS ========== -->
+    <section class="content-layer py-24 px-4 md:px-8">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <p class="text-primary text-sm tracking-[0.2em] uppercase font-semibold mb-4">What You'll Learn</p>
-                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-wide">一個下午，四大關鍵主題</h2>
-                <p class="text-muted mt-4 max-w-lg mx-auto">不講空話、不賣焦慮。三位實戰派講師，用真實案例拆解包租代管的每個環節。</p>
+                <p class="text-primary text-sm tracking-widest uppercase font-semibold mb-3">What You'll Learn</p>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight">一個下午，四大關鍵主題</h2>
+                <p class="text-txt-secondary mt-4 max-w-lg mx-auto">不講空話、不賣焦慮。用真實案例拆解包租代管的每個環節。</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-5">
-                <div class="topic-card rounded-xl p-7 reveal">
+                <div class="topic-card glass rounded-3xl p-8 reveal">
                     <div class="flex items-start gap-5">
                         <span class="topic-number">01</span>
-                        <div class="pt-2">
-                            <h3 class="text-lg font-bold mb-2">談創業</h3>
-                            <p class="text-muted text-sm leading-relaxed">從零起步的真實路徑。不是雞湯，是走過來的人告訴你哪些坑可以避開。</p>
+                        <div class="pt-1">
+                            <h3 class="text-lg font-bold mb-2 text-txt">談創業</h3>
+                            <p class="text-txt-secondary text-sm leading-relaxed">從零起步的真實路徑。不是雞湯，是走過來的人告訴你哪些坑可以避開。</p>
                         </div>
                     </div>
                 </div>
-                <div class="topic-card rounded-xl p-7 reveal reveal-delay-1">
+                <div class="topic-card glass rounded-3xl p-8 reveal reveal-d1">
                     <div class="flex items-start gap-5">
                         <span class="topic-number">02</span>
-                        <div class="pt-2">
-                            <h3 class="text-lg font-bold mb-2">談包租</h3>
-                            <p class="text-muted text-sm leading-relaxed">物件怎麼找、租金怎麼抓、房東怎麼談。用實戰數據讓你看懂這門生意的邏輯。</p>
+                        <div class="pt-1">
+                            <h3 class="text-lg font-bold mb-2 text-txt">談包租</h3>
+                            <p class="text-txt-secondary text-sm leading-relaxed">物件怎麼找、租金怎麼抓、房東怎麼談。用實戰數據看懂這門生意的邏輯。</p>
                         </div>
                     </div>
                 </div>
-                <div class="topic-card rounded-xl p-7 reveal">
+                <div class="topic-card glass rounded-3xl p-8 reveal">
                     <div class="flex items-start gap-5">
                         <span class="topic-number">03</span>
-                        <div class="pt-2">
-                            <h3 class="text-lg font-bold mb-2">談業務力</h3>
-                            <p class="text-muted text-sm leading-relaxed">成交不是靠話術，是靠信任建立。學會讓客戶主動找你的溝通框架。</p>
+                        <div class="pt-1">
+                            <h3 class="text-lg font-bold mb-2 text-txt">談業務力</h3>
+                            <p class="text-txt-secondary text-sm leading-relaxed">成交不是靠話術，是靠信任建立。學會讓客戶主動找你的溝通框架。</p>
                         </div>
                     </div>
                 </div>
-                <div class="topic-card rounded-xl p-7 reveal reveal-delay-1">
+                <div class="topic-card glass rounded-3xl p-8 reveal reveal-d1">
                     <div class="flex items-start gap-5">
                         <span class="topic-number">04</span>
-                        <div class="pt-2">
-                            <h3 class="text-lg font-bold mb-2">合作獲利</h3>
-                            <p class="text-muted text-sm leading-relaxed">不是單打獨鬥，而是聯盟共贏。了解優式的合作模式與你能拿到的資源。</p>
+                        <div class="pt-1">
+                            <h3 class="text-lg font-bold mb-2 text-txt">合作獲利</h3>
+                            <p class="text-txt-secondary text-sm leading-relaxed">不是單打獨鬥，而是聯盟共贏。了解優式的合作模式與你能拿到的資源。</p>
                         </div>
                     </div>
                 </div>
@@ -400,128 +458,131 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- ========== SPEAKERS ========== -->
-    <section class="py-24 px-4 md:px-8 bg-surface relative z-10">
+    <section class="content-layer py-24 px-4 md:px-8">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <p class="text-primary text-sm tracking-[0.2em] uppercase font-semibold mb-4">Speakers</p>
-                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-wide">三位導師・三種視角</h2>
-                <p class="text-muted mt-4">不同背景，同一個目標：讓你少走彎路</p>
+                <p class="text-primary text-sm tracking-widest uppercase font-semibold mb-3">Speakers</p>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight">三位導師・三種視角</h2>
+                <p class="text-txt-secondary mt-4">不同背景，同一個目標：讓你少走彎路</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="speaker-card glass-card rounded-2xl p-8 text-center reveal cursor-default">
-                    <div class="speaker-avatar w-20 h-20 rounded-full bg-surface-elevated mx-auto mb-5 flex items-center justify-center relative z-0">
-                        <span class="text-2xl font-display font-bold text-primary">W</span>
+                <div class="speaker-card glass rounded-3xl p-8 text-center reveal">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-5 flex items-center justify-center shadow-lg shadow-primary/20">
+                        <span class="text-2xl font-black text-white">W</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-1">小吳哥</h3>
-                    <p class="text-muted text-sm mb-4">優式聯盟講師</p>
-                    <div class="h-px bg-surface-border mb-4"></div>
-                    <p class="text-muted text-xs leading-relaxed">包租代管實戰經驗豐富，擅長將複雜的市場策略化為可執行的步驟。</p>
+                    <h3 class="text-lg font-bold text-txt mb-1">小吳哥</h3>
+                    <p class="text-txt-tertiary text-sm mb-4">優式聯盟講師</p>
+                    <div class="h-px bg-black/5 mb-4"></div>
+                    <p class="text-txt-secondary text-xs leading-relaxed">包租代管實戰經驗豐富，擅長將複雜的市場策略化為可執行的步驟。</p>
                 </div>
 
-                <div class="speaker-card glass-card rounded-2xl p-8 text-center reveal reveal-delay-1 cursor-default">
-                    <div class="speaker-avatar w-20 h-20 rounded-full bg-surface-elevated mx-auto mb-5 flex items-center justify-center relative z-0">
-                        <span class="text-2xl font-display font-bold text-primary">T</span>
+                <div class="speaker-card glass rounded-3xl p-8 text-center reveal reveal-d1">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-5 flex items-center justify-center shadow-lg shadow-primary/20">
+                        <span class="text-2xl font-black text-white">T</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-1">Teresa</h3>
-                    <p class="text-muted text-sm mb-4">優式聯盟講師</p>
-                    <div class="h-px bg-surface-border mb-4"></div>
-                    <p class="text-muted text-xs leading-relaxed">深耕業務溝通與客戶經營，專注打造高信任感的成交流程。</p>
+                    <h3 class="text-lg font-bold text-txt mb-1">Teresa</h3>
+                    <p class="text-txt-tertiary text-sm mb-4">優式聯盟講師</p>
+                    <div class="h-px bg-black/5 mb-4"></div>
+                    <p class="text-txt-secondary text-xs leading-relaxed">深耕業務溝通與客戶經營，專注打造高信任感的成交流程。</p>
                 </div>
 
-                <div class="speaker-card glass-card rounded-2xl p-8 text-center reveal reveal-delay-2 cursor-default">
-                    <div class="speaker-avatar w-20 h-20 rounded-full bg-surface-elevated mx-auto mb-5 flex items-center justify-center relative z-0">
-                        <span class="text-2xl font-display font-bold text-primary">C</span>
+                <div class="speaker-card glass rounded-3xl p-8 text-center reveal reveal-d2">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-5 flex items-center justify-center shadow-lg shadow-primary/20">
+                        <span class="text-2xl font-black text-white">C</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-1">小傳老師</h3>
-                    <p class="text-muted text-sm mb-4">優式聯盟講師</p>
-                    <div class="h-px bg-surface-border mb-4"></div>
-                    <p class="text-muted text-xs leading-relaxed">聯盟合作模式的推手，協助夥伴建立穩定的被動收入系統。</p>
+                    <h3 class="text-lg font-bold text-txt mb-1">小傳老師</h3>
+                    <p class="text-txt-tertiary text-sm mb-4">優式聯盟講師</p>
+                    <div class="h-px bg-black/5 mb-4"></div>
+                    <p class="text-txt-secondary text-xs leading-relaxed">聯盟合作模式的推手，協助夥伴建立穩定的被動收入系統。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- ========== REGISTRATION ========== -->
-    <section id="register" class="py-24 px-4 md:px-8 bg-surface relative z-10">
+    <section id="register" class="content-layer py-24 px-4 md:px-8">
         <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
 
-            <!-- Left: Why attend -->
+            <!-- Left: Benefits -->
             <div class="reveal">
-                <p class="text-primary text-sm tracking-[0.2em] uppercase font-semibold mb-4">Register Now</p>
-                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-wide mb-6">你離包租代管創業<br>只差一個下午</h2>
-                <p class="text-muted-light leading-relaxed mb-8">
+                <p class="text-primary text-sm tracking-widest uppercase font-semibold mb-3">Register Now</p>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-6">你離包租代管創業<br>只差一個下午</h2>
+                <p class="text-txt-secondary leading-relaxed mb-8">
                     這不是一場推銷會。我們只做一件事：把三位講師走過的路，濃縮成三小時，讓你帶走能直接用的東西。
                 </p>
 
                 <div class="space-y-4 mb-10">
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                        <span class="text-sm text-muted-light">三位實戰講師，不講理論只給方法</span>
+                        <div class="check-icon">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                        </div>
+                        <span class="text-sm text-txt-secondary">三位實戰講師，不講理論只給方法</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                        <span class="text-sm text-muted-light">含物件實地參訪，看真實案例</span>
+                        <div class="check-icon">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                        </div>
+                        <span class="text-sm text-txt-secondary">含物件實地參訪，看真實案例</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                        <span class="text-sm text-muted-light">現場 Q&A，你的問題當場解答</span>
+                        <div class="check-icon">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                        </div>
+                        <span class="text-sm text-txt-secondary">現場 Q&A，你的問題當場解答</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                        <span class="text-sm text-muted-light">完全免費，但名額有限</span>
+                        <div class="check-icon">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                        </div>
+                        <span class="text-sm text-txt-secondary">完全免費，但名額有限</span>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-xl p-5 inline-flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div class="glass-subtle rounded-2xl p-5 inline-flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
                     </div>
                     <div>
-                        <p class="text-white text-sm font-semibold">席位有限</p>
-                        <p class="text-muted text-xs">為確保互動品質，本場次限額報名</p>
+                        <p class="text-txt text-sm font-semibold">席位有限</p>
+                        <p class="text-txt-tertiary text-xs">為確保互動品質，本場次限額報名</p>
                     </div>
                 </div>
             </div>
 
             <!-- Right: Form -->
-            <div class="reveal reveal-delay-2">
-                <div class="glass-card rounded-2xl p-8 md:p-10">
-                    <h3 class="text-xl font-bold mb-1">填寫報名資訊</h3>
-                    <p class="text-muted text-sm mb-8">30 秒完成，我們會在活動前通知您</p>
+            <div class="reveal reveal-d2">
+                <div class="glass-strong rounded-3xl p-8 md:p-10">
+                    <h3 class="text-xl font-bold text-txt mb-1">填寫報名資訊</h3>
+                    <p class="text-txt-tertiary text-sm mb-8">30 秒完成，我們會在活動前通知您</p>
 
                     <form id="registerForm" class="space-y-5" novalidate>
                         <div>
-                            <label for="field-name" class="block text-sm font-medium text-muted-light mb-2">
+                            <label for="field-name" class="block text-sm font-medium text-txt-secondary mb-2">
                                 姓名 <span class="text-primary">*</span>
                             </label>
                             <input type="text" id="field-name" name="name" required autocomplete="name"
                                 placeholder="您的姓名"
-                                class="form-input w-full px-4 py-3.5 bg-surface border border-surface-border rounded-lg text-white placeholder-muted text-sm">
+                                class="form-input w-full px-4 py-3.5 bg-white/60 border border-black/8 rounded-xl text-txt placeholder-txt-tertiary text-sm">
                         </div>
 
                         <div>
-                            <label for="field-phone" class="block text-sm font-medium text-muted-light mb-2">
+                            <label for="field-phone" class="block text-sm font-medium text-txt-secondary mb-2">
                                 電話 <span class="text-primary">*</span>
                             </label>
                             <input type="tel" id="field-phone" name="phone" required autocomplete="tel"
                                 placeholder="0912-345-678"
-                                class="form-input w-full px-4 py-3.5 bg-surface border border-surface-border rounded-lg text-white placeholder-muted text-sm">
+                                class="form-input w-full px-4 py-3.5 bg-white/60 border border-black/8 rounded-xl text-txt placeholder-txt-tertiary text-sm">
                         </div>
 
                         <div>
-                            <label for="field-source" class="block text-sm font-medium text-muted-light mb-2">
+                            <label for="field-source" class="block text-sm font-medium text-txt-secondary mb-2">
                                 從哪裡得知此活動？ <span class="text-primary">*</span>
                             </label>
                             <select id="field-source" name="source" required
-                                class="form-input w-full px-4 py-3.5 bg-surface border border-surface-border rounded-lg text-white text-sm appearance-none cursor-pointer"
-                                style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22><path d=%22M6 9l6 6 6-6%22/></svg>'); background-repeat: no-repeat; background-position: right 16px center;">
-                                <option value="" disabled selected>請選擇</option>
+                                class="form-input w-full px-4 py-3.5 bg-white/60 border border-black/8 rounded-xl text-txt text-sm appearance-none cursor-pointer">
+                                <option value="" disabled selected class="text-txt-tertiary">請選擇</option>
                                 <option value="小吳哥">小吳哥</option>
                                 <option value="Teresa">Teresa</option>
                                 <option value="小傳老師">小傳老師</option>
@@ -532,12 +593,12 @@
                         </div>
 
                         <button type="submit" id="submitBtn"
-                            class="btn-primary w-full py-4 rounded-lg text-white font-bold text-base mt-2 flex items-center justify-center gap-2">
+                            class="btn-primary w-full py-4 rounded-xl font-bold text-base mt-2 flex items-center justify-center gap-2">
                             <span>確認報名</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                         </button>
 
-                        <p class="text-muted text-xs text-center">
+                        <p class="text-txt-tertiary text-xs text-center">
                             報名資訊僅用於活動通知，不會用於其他用途
                         </p>
                     </form>
@@ -547,177 +608,125 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="py-10 px-4 bg-surface border-t border-surface-border relative z-10">
+    <footer class="content-layer py-10 px-4">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-muted text-sm font-display tracking-wider">YOUSHI ALLIANCE</p>
-            <p class="text-muted text-xs">&copy; 2026 優式聯盟. All rights reserved.</p>
+            <p class="text-txt-tertiary text-sm font-semibold tracking-wider">YOUSHI ALLIANCE</p>
+            <p class="text-txt-tertiary text-xs">&copy; 2026 優式聯盟</p>
         </div>
     </footer>
 
     <!-- ========== SUCCESS MODAL ========== -->
     <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop">
-        <div class="bg-surface-elevated rounded-2xl p-10 max-w-md mx-4 text-center border border-surface-border shadow-2xl">
-            <div class="w-16 h-16 rounded-full border-2 border-green-500/30 mx-auto mb-6 flex items-center justify-center">
-                <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="glass-strong rounded-3xl p-10 max-w-md mx-4 text-center shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-green-50 mx-auto mb-6 flex items-center justify-center">
+                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                 </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-2">報名成功</h3>
-            <p class="text-muted mb-8">已收到您的報名，我們會在活動前通知您。</p>
+            <h3 class="text-2xl font-bold text-txt mb-2">報名成功</h3>
+            <p class="text-txt-secondary mb-8">已收到您的報名，我們會在活動前通知您。</p>
 
-            <div class="bg-surface rounded-xl p-5 mb-8 text-left space-y-2">
-                <div class="flex items-center gap-2">
+            <div class="bg-black/3 rounded-2xl p-5 mb-8 text-left space-y-3">
+                <div class="flex items-center gap-3">
                     <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-                    <span class="text-sm text-muted-light">3 月 28 日（六）14:00 - 17:00</span>
+                    <span class="text-sm text-txt-secondary">3 月 28 日（六）14:00 - 17:00</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-3">
                     <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                    <span class="text-sm text-muted-light">心寓商務中心・板橋府中館 2F</span>
+                    <span class="text-sm text-txt-secondary">心寓商務中心・板橋府中館 2F</span>
                 </div>
             </div>
 
-            <button onclick="closeModal()" class="btn-primary px-8 py-3 rounded-lg font-bold text-sm cursor-pointer">
+            <button onclick="closeModal()" class="btn-primary px-8 py-3 rounded-full font-bold text-sm cursor-pointer">
                 收到，活動見
             </button>
         </div>
     </div>
 
     <!-- ========== STICKY MOBILE CTA ========== -->
-    <div id="stickyCta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 p-4 bg-surface/95 backdrop-blur-md border-t border-surface-border lg:hidden">
-        <a href="#register" class="btn-primary w-full py-3.5 rounded-lg text-white font-bold text-sm flex items-center justify-center gap-2">
+    <div id="stickyCta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 p-4 glass-strong lg:hidden">
+        <a href="#register" class="btn-primary w-full py-3.5 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2">
             <span>立即報名</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
     </div>
 
     <script>
-        // === COUNTDOWN TIMER ===
+        // === COUNTDOWN ===
         const eventDate = new Date('2026-03-28T14:00:00+08:00').getTime();
         function updateCountdown() {
-            const now = Date.now();
-            const diff = eventDate - now;
+            const diff = eventDate - Date.now();
             if (diff <= 0) {
-                document.getElementById('cd-days').textContent = '0';
-                document.getElementById('cd-hours').textContent = '0';
-                document.getElementById('cd-mins').textContent = '0';
-                document.getElementById('cd-secs').textContent = '0';
+                ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0');
                 return;
             }
-            const d = Math.floor(diff / 86400000);
-            const h = Math.floor((diff % 86400000) / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
-            document.getElementById('cd-days').textContent = d;
-            document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-            document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-            document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+            document.getElementById('cd-days').textContent = Math.floor(diff / 86400000);
+            document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
         // === SCROLL REVEAL ===
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
+        const ro = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
         // === STICKY CTA ===
         const stickyCta = document.getElementById('stickyCta');
-        const registerSection = document.getElementById('register');
-        const stickyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    stickyCta.classList.remove('show');
-                } else {
-                    const heroBottom = document.querySelector('.hero-section').getBoundingClientRect().bottom;
-                    if (heroBottom < 0) {
-                        stickyCta.classList.add('show');
-                    }
-                }
+        const regSection = document.getElementById('register');
+        new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) stickyCta.classList.remove('show');
+                else if (document.querySelector('.content-layer').getBoundingClientRect().bottom < 0 || window.scrollY > window.innerHeight)
+                    stickyCta.classList.add('show');
             });
-        }, { threshold: 0.1 });
-        stickyObserver.observe(registerSection);
+        }, { threshold: 0.1 }).observe(regSection);
 
-        // Also hide sticky when in hero
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    stickyCta.classList.remove('show');
-                }
-            });
-        }, { threshold: 0.3 });
-        heroObserver.observe(document.querySelector('.hero-section'));
-
-        // === FORM SUBMISSION ===
+        // === FORM ===
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzyl3pZR1cezcSgHARa0D7q6CUWKP2Io7uti3zwR2cs4CzGRXxTI2LIIWBKYJ8C4aqm/exec';
         const form = document.getElementById('registerForm');
         const submitBtn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            // Basic validation
             const name = form.name.value.trim();
             const phone = form.phone.value.trim();
             const source = form.source.value;
-
             if (!name || !phone || !source) return;
-
-            const data = {
-                name,
-                phone,
-                source,
-                timestamp: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })
-            };
 
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg><span>報名中...</span>';
 
             try {
                 await fetch(GAS_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
+                    method: 'POST', mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({ name, phone, source, timestamp: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }) })
                 });
                 showModal();
                 form.reset();
-            } catch (err) {
-                alert('報名時發生錯誤，請稍後再試。');
-            } finally {
+            } catch { alert('報名時發生錯誤，請稍後再試。'); }
+            finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<span>確認報名</span><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>';
             }
         });
 
         function showModal() {
-            const modal = document.getElementById('successModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            const m = document.getElementById('successModal');
+            m.classList.remove('hidden'); m.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
-            const modal = document.getElementById('successModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            const m = document.getElementById('successModal');
+            m.classList.add('hidden'); m.classList.remove('flex');
             document.body.style.overflow = '';
         }
-
-        // Close modal on backdrop click
-        document.getElementById('successModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) closeModal();
-        });
-
-        // Close modal on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
+        document.getElementById('successModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
     </script>
 </body>
 </html>
