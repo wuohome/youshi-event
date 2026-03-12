@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>優式學院見面茶會 — 包租代管全攻略＋物件實戰參訪</title>
+    <meta name="description" content="2026/3/28（六）板橋心寓商務中心，免費報名！三大講師合體，帶你從零了解包租代管創業。">
+    <meta property="og:title" content="優式學院見面茶會 — 包租代管全攻略">
+    <meta property="og:description" content="3/28（六）板橋・免費報名・名額有限">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C8102E',
+                        'primary-dark': '#A00D24',
+                        'primary-light': '#E8354A',
+                        dark: '#1A1A1A',
+                        'dark-light': '#2D2D2D',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        /* Hero gradient */
+        .hero-bg {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #C8102E 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(200, 16, 46, 0.3) 0%, transparent 60%);
+        }
+
+        /* Animated accent line */
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: #C8102E;
+            border-radius: 2px;
+        }
+
+        /* Card hover */
+        .speaker-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .speaker-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(200, 16, 46, 0.15);
+        }
+
+        /* Topic badge */
+        .topic-badge {
+            background: linear-gradient(135deg, #C8102E, #E8354A);
+            transition: transform 0.2s ease;
+        }
+        .topic-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Form input focus */
+        .form-input:focus {
+            outline: none;
+            border-color: #C8102E;
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.15);
+        }
+
+        /* CTA button */
+        .btn-cta {
+            background: linear-gradient(135deg, #C8102E, #E8354A);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4);
+        }
+        .btn-cta:active {
+            transform: translateY(0);
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Info card icon */
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(200, 16, 46, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Success overlay */
+        .success-overlay {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Floating decoration */
+        .float-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(200, 16, 46, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans">
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center px-4 relative">
+        <div class="float-dot top-[20%] left-[10%]" style="animation-delay: 0s;"></div>
+        <div class="float-dot top-[60%] left-[80%]" style="animation-delay: 2s;"></div>
+        <div class="float-dot top-[40%] left-[60%]" style="animation-delay: 4s;"></div>
+        <div class="float-dot top-[80%] left-[20%]" style="animation-delay: 1s;"></div>
+
+        <div class="text-center relative z-10 max-w-3xl mx-auto">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-primary/40 text-primary-light text-sm font-medium mb-8 tracking-wide">
+                2026.03.28（六）｜板橋・免費入場
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-tight">
+                優式學院<br>
+                <span class="text-primary-light">見面茶會</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-4 font-medium">
+                扎實精華全攻略＋物件實戰參訪
+            </p>
+            <p class="text-base text-gray-400 mb-10 max-w-lg mx-auto leading-relaxed">
+                三大講師合體連番上陣，帶你從零了解包租代管創業的每個關鍵環節
+            </p>
+            <a href="#register" class="btn-cta inline-block px-10 py-4 rounded-full text-white font-bold text-lg tracking-wide">
+                立即報名 →
+            </a>
+            <p class="text-gray-500 text-sm mt-4">名額有限，額滿為止</p>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Event Info Section -->
+    <section class="py-20 px-4 bg-dark">
+        <div class="max-w-4xl mx-auto fade-in">
+            <div class="accent-line mb-6"></div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">活動資訊</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-dark-light rounded-2xl p-6 flex items-start gap-4">
+                    <div class="info-icon">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">日期時間</p>
+                        <p class="text-xl font-bold">2026 / 03 / 28（六）</p>
+                        <p class="text-primary-light font-semibold">14:00 — 17:00</p>
+                    </div>
+                </div>
+
+                <div class="bg-dark-light rounded-2xl p-6 flex items-start gap-4">
+                    <div class="info-icon">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">地點</p>
+                        <p class="text-xl font-bold">心寓商務中心</p>
+                        <p class="text-gray-400">板橋府中館 2F</p>
+                    </div>
+                </div>
+
+                <div class="bg-dark-light rounded-2xl p-6 flex items-start gap-4">
+                    <div class="info-icon">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">費用</p>
+                        <p class="text-xl font-bold text-primary-light">免費參加</p>
+                        <p class="text-gray-400">填表報名即可</p>
+                    </div>
+                </div>
+
+                <div class="bg-dark-light rounded-2xl p-6 flex items-start gap-4">
+                    <div class="info-icon">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">地址</p>
+                        <p class="font-semibold">新北市板橋區四川路一段136號2樓</p>
+                        <a href="https://maps.app.goo.gl/GZgP4u1ESLvRifaA8" target="_blank" class="text-primary-light text-sm hover:underline mt-1 inline-block">
+                            查看 Google Map →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section class="py-20 px-4 bg-dark-light">
+        <div class="max-w-4xl mx-auto fade-in">
+            <div class="accent-line mb-6"></div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">說明會主題</h2>
+            <p class="text-gray-400 mb-12">一個下午，四大核心主題一次搞懂</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="topic-badge rounded-2xl p-6 text-center">
+                    <div class="text-3xl mb-3">🚀</div>
+                    <p class="font-bold text-lg">談創業</p>
+                    <p class="text-white/70 text-sm mt-1">從零開始的路</p>
+                </div>
+                <div class="topic-badge rounded-2xl p-6 text-center">
+                    <div class="text-3xl mb-3">🏠</div>
+                    <p class="font-bold text-lg">談包租</p>
+                    <p class="text-white/70 text-sm mt-1">實戰經驗分享</p>
+                </div>
+                <div class="topic-badge rounded-2xl p-6 text-center">
+                    <div class="text-3xl mb-3">💪</div>
+                    <p class="font-bold text-lg">談業務力</p>
+                    <p class="text-white/70 text-sm mt-1">成交的關鍵</p>
+                </div>
+                <div class="topic-badge rounded-2xl p-6 text-center">
+                    <div class="text-3xl mb-3">🤝</div>
+                    <p class="font-bold text-lg">合作獲利</p>
+                    <p class="text-white/70 text-sm mt-1">聯盟共贏模式</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="py-20 px-4 bg-dark">
+        <div class="max-w-4xl mx-auto fade-in">
+            <div class="accent-line mb-6"></div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">講師陣容</h2>
+            <p class="text-gray-400 mb-12">優式三大講師合體連番上陣</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="speaker-card bg-dark-light rounded-2xl p-8 text-center border border-white/5">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl font-black">吳</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">小吳哥</h3>
+                    <p class="text-gray-400 text-sm">優式聯盟講師</p>
+                </div>
+
+                <div class="speaker-card bg-dark-light rounded-2xl p-8 text-center border border-white/5">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl font-black">T</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Teresa</h3>
+                    <p class="text-gray-400 text-sm">優式聯盟講師</p>
+                </div>
+
+                <div class="speaker-card bg-dark-light rounded-2xl p-8 text-center border border-white/5">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-light mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl font-black">傳</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">小傳老師</h3>
+                    <p class="text-gray-400 text-sm">優式聯盟講師</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="register" class="py-20 px-4 bg-dark-light">
+        <div class="max-w-lg mx-auto fade-in">
+            <div class="accent-line mb-6"></div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">立即報名</h2>
+            <p class="text-gray-400 mb-10">填寫以下資訊，我們將為您保留席位</p>
+
+            <form id="registerForm" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">姓名 <span class="text-primary">*</span></label>
+                    <input type="text" name="name" required placeholder="請輸入您的姓名"
+                        class="form-input w-full px-5 py-3.5 bg-dark border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">電話 <span class="text-primary">*</span></label>
+                    <input type="tel" name="phone" required placeholder="0912-345-678"
+                        class="form-input w-full px-5 py-3.5 bg-dark border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">從哪裡得知此活動？ <span class="text-primary">*</span></label>
+                    <select name="source" required
+                        class="form-input w-full px-5 py-3.5 bg-dark border border-white/10 rounded-xl text-white transition-all appearance-none">
+                        <option value="" disabled selected class="text-gray-500">請選擇</option>
+                        <option value="小吳哥">小吳哥</option>
+                        <option value="Teresa">Teresa</option>
+                        <option value="小傳老師">小傳老師</option>
+                        <option value="朋友介紹">朋友介紹</option>
+                        <option value="社群媒體">社群媒體</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submitBtn"
+                    class="btn-cta w-full py-4 rounded-xl text-white font-bold text-lg tracking-wide mt-4">
+                    確認報名
+                </button>
+
+                <p class="text-gray-500 text-xs text-center mt-3">
+                    提交即表示您同意我們聯繫您確認出席資訊
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-dark border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gray-500 text-sm">
+                優式聯盟 YOUSHI Alliance &copy; 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center success-overlay">
+        <div class="bg-dark-light rounded-3xl p-10 max-w-md mx-4 text-center border border-white/10 shadow-2xl">
+            <div class="w-20 h-20 rounded-full bg-green-500/10 mx-auto mb-6 flex items-center justify-center">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">報名成功！</h3>
+            <p class="text-gray-400 mb-6">我們已收到您的報名資訊，<br>活動當天見！</p>
+            <div class="bg-dark rounded-xl p-4 mb-6 text-left">
+                <p class="text-gray-400 text-sm">
+                    <span class="text-primary-light font-semibold">3/28（六）14:00</span><br>
+                    心寓商務中心・板橋府中館 2F
+                </p>
+            </div>
+            <button onclick="closeModal()" class="btn-cta px-8 py-3 rounded-full font-bold">
+                好的，我知道了
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Scroll fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Form submission
+        // TODO: Replace with your Google Apps Script Web App URL
+        const GAS_URL = 'https://script.google.com/macros/s/AKfycbzyl3pZR1cezcSgHARa0D7q6CUWKP2Io7uti3zwR2cs4CzGRXxTI2LIIWBKYJ8C4aqm/exec';
+
+        const form = document.getElementById('registerForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                source: formData.get('source'),
+                timestamp: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '報名中...';
+
+            try {
+                if (GAS_URL) {
+                    await fetch(GAS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                }
+                showModal();
+                form.reset();
+            } catch (err) {
+                alert('報名時發生錯誤，請稍後再試或直接聯繫我們。');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '確認報名';
+            }
+        });
+
+        function showModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
